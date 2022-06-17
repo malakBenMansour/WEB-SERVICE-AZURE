@@ -45,7 +45,7 @@
 
 		// PHP Data Objects(PDO) Sample Code:
 		try {
-			$conn = new PDO("sqlsrv:server = tcp:chisomjude.database.windows.net,1433; Database = covidcenter", "chisomjude", "{your_password_here}");
+			$conn = new PDO("sqlsrv:server = tcp:covidesearchapp.mysql.database.azure.com,1433; Database = covidsearchapp", "chisomjude", "{your_password_here}");
 			$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		}
 		catch (PDOException $e) {
@@ -54,14 +54,14 @@
 		}
 
 		// SQL Server Extension Sample Code:
-		$connectionInfo = array("UID" => "chisomjude", "pwd" => "Favoured0205", "Database" => "covidcenter", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);
-		$serverName = "tcp:chisomjude.database.windows.net,1433";
+		$connectionInfo = array("UID" => "chisomjude", "pwd" => "Favoured0205", "Database" => "covidsearchapp", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);
+		$serverName = "tcp:covidesearchapp.mysql.database.azure.com,1433";
 		$conn = sqlsrv_connect($serverName, $connectionInfo);
 
 
        # Start form processing if test center
 
-		$sqlquery = "SELECT * FROM covid_center WHERE center_location ='Lagos, Mainland' ";
+		$sqlquery = "SELECT * FROM covidcenter WHERE center_location ='Lagos, Mainland' ";
 		$sqlquery = mysqli_query($conn, $sqlquery);
 		?>
 
